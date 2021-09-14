@@ -71,16 +71,12 @@ var elsyium = Object.assign({}, config, {
   },
 });
 
-// Return Array of Configurations
-module.exports = [main, elsyium];
-
-/*module.exports = (env) => {
+module.exports = (env) => {
   const isProd = env && env.prod;
 
   if (!isProd) {
     config.devtool = "#source-map";
   }
 
-  return config;
+  return [main, elsyium];
 };
-*/

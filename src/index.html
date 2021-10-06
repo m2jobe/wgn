@@ -197,12 +197,11 @@
   "
 >
   <button onclick="playWorldGoesOn()" id="play-button" class="snip1575">
-    Play 🔊
+    Mute 🔇
   </button>
   <button onclick="goToElsyium()" class="snip1575">Go To Elsyium 🌀</button>
 </div>
 
-<script src="build.js"></script>
 <script>
   isPlaying = false;
   audio = null;
@@ -211,8 +210,10 @@
   }
 
   function playWorldGoesOn() {
-    if (!isPlaying)  {
-      audio = new Audio("/assets/audio/world-goes-on.wav");
+    if (!isPlaying) {
+      if (!audio) {
+        audio = new Audio("/assets/audio/world-goes-on.wav");
+      }
       audio.play();
       isPlaying = true;
       document.getElementById("play-button").textContent = "Mute 🔇";
@@ -222,4 +223,10 @@
     isPlaying = false;
     document.getElementById("play-button").textContent = "Play 🔊";
   }
+
+  window.onload = function (event) {
+    playWorldGoesOn();
+  };
 </script>
+s
+<script src="build.js"></script>
